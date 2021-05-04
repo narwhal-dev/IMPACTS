@@ -7,14 +7,12 @@ import 'qr_screen.dart';
 import 'history_screen.dart';
 import 'settings_screen.dart';
 
-
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({Key? key}) : super(key: key);
 
   @override
   _BottomNavScreenState createState() => _BottomNavScreenState();
 }
-
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   int _selectedIndex = 0;
