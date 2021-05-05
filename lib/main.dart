@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarBrightness: Brightness.dark)
     );
+
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '',
