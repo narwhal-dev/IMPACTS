@@ -19,6 +19,15 @@ class _HistoryState extends State<History> {
             width: double.infinity,
             decoration: BoxDecoration(
               color: Palette.defaultBackground,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromRGBO(55, 46, 46, 1),
+                  Palette.defaultBackground,
+                ],
+                stops: [0.0, 0.55],
+              ),
             ),
           ),
           Container(

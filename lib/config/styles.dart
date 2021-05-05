@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:impacts/config/palette.dart';
 
 // implementation: style: Styles.productRowItemName,
 /*
@@ -61,7 +61,8 @@ abstract class Styles {
   static const TextStyle paragraph = TextStyle(
     fontSize: 17,
     fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w700,
+    color: Palette.tabBackground,
   );
 
   static const TextStyle subheading = TextStyle(

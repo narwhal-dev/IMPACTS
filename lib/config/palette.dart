@@ -12,9 +12,10 @@ class Palette {
   static const Color cardColor6 = Color.fromRGBO(100, 50, 138, 1);
 
   //static const Color defaultBackground = Color.fromRGBO(23, 17, 45, 1);
-  static const Color defaultBackground = Color.fromRGBO(25, 25, 25, 1);
+  static const Color defaultBackground = Color.fromRGBO(22, 22, 22, 1);
+  //static const Color defaultBackground = Color.fromRGBO(255, 255, 255, 1);
   //static const Color tabBackground = Color.fromRGBO(18, 14, 36, 1);
-  static const Color tabBackground = Color.fromRGBO(35, 35, 35, 1);
+  static const Color tabBackground = Color.fromRGBO(35, 34, 31, 1);
   static const Color frameBackground = Color.fromRGBO(117, 210, 227, 1);
   static const Color frameBackground2 = Color.fromRGBO(254, 243, 237, 1);
 
