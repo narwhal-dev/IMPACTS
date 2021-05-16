@@ -1,47 +1,60 @@
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:flutter/material.dart';
-import 'package:impacts/config/palette.dart';
-import 'package:impacts/config/styles.dart';
+import 'package:impacts/widget/change_theme_button.dart';
 
-class Settings extends StatefulWidget {
-  @override
-  _SettingsState createState() => _SettingsState();
-}
+class Settings extends StatelessWidget {
 
-class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
+    return Stack(
+      children: <Widget>[
           Container(
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Palette.defaultBackground,
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromRGBO(55, 46, 46, 1),
-                  Palette.defaultBackground,
+                  Theme.of(context).scaffoldBackgroundColor,
+                  Theme.of(context).accentColor,
                 ],
-                stops: [0.0, 0.55],
               ),
             ),
           ),
           Container(
-            child: SafeArea(
-              child: Text('Settings', style: Styles.title1),
-              top: true,
-              bottom: false,
-              left: true,
-              right: true,
-              minimum: EdgeInsets.only(left: 40.0, top: 55.0, right: 40.0),
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: SafeArea(
+                      child: Text(
+                          'Settings',
+                          style: TextStyle(
+                            fontFamily: 'SF-Pro',
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                            //Styles.title1
+                          ),
+                      ),
+                      top: true, bottom: false, left: true, right: true,
+                      minimum: EdgeInsets.only(left: 40.0, top: 55.0, right: 40.0, bottom: 10.0),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
+                    alignment: Alignment.topLeft,
+                    child: ChangeThemeButtonWidget(),
+                  ),
+                ],
+              ),
             ),
           ),
-        ],
-      ),
+      ],
     );
   }
 }

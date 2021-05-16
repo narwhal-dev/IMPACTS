@@ -22,20 +22,25 @@ abstract class Styles {
   );
 
   static const TextStyle title1 = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF261A0E),
     fontSize: 36,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
-    color: Colors.white,
   );
 
   static const TextStyle title2 = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF261A0E),
     fontSize: 28,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
 
   static const TextStyle title3 = TextStyle(
-    fontSize: 20,
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF261A0E),
+    fontSize: 22,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w800,
   );
@@ -47,29 +52,34 @@ abstract class Styles {
   );
 
   static const TextStyle title5 = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Colors.black,
     fontSize: 17,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
 
   static const TextStyle title6 = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF717171),
     fontSize: 17,
     fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
   );
 
   static const TextStyle paragraph = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF261A0E),
     fontSize: 17,
     fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.w700,
-    color: Palette.tabBackground,
+    fontWeight: FontWeight.w600,
   );
 
   static const TextStyle subheading = TextStyle(
+    fontFamily: 'SF-Pro',
     fontSize: 15,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w500,
-    height: 1.5,
   );
 
   static const TextStyle field = TextStyle(
@@ -83,7 +93,17 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 
+  static const TextStyle condition = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFFEB4D37),
+    fontSize: 11,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w600,
+  );
+
   static const TextStyle caption = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Colors.black,
     fontSize: 10,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,

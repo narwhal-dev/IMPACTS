@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'dart:ui';
-import 'package:impacts/config/palette.dart';
 import 'package:impacts/config/styles.dart';
 import 'home_screen.dart';
 import 'qr_screen.dart';
 import 'history_screen.dart';
 import 'settings_screen.dart';
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({Key? key}) : super(key: key);
@@ -27,90 +25,72 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: Align(
-        alignment: FractionalOffset.bottomCenter,
-
-        child: ClipRect(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Palette.tabBackground.withOpacity(0.7),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(left: 12.0, top: 3.0, right: 12.0, bottom: 0.0),
-                child: BubbleBottomBar(
-                  elevation: 0,
-                  backgroundColor: Colors.transparent,
-                  currentIndex: _selectedIndex,
-                  onTap: (index) {
-                    setState(() {
-                      _selectedIndex = index;
-                    });
-                  },
-                  hasNotch: true,
-                  opacity: 0.8,
-                  hasInk: true,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                  items: <BubbleBottomBarItem>[
-                    BubbleBottomBarItem(
-                      backgroundColor: Palette.textColor2,
-                      icon: Icon(
-                        SFSymbols.house,
-                        color: Palette.textColor3,
-                      ),
-                      activeIcon: Icon(
-                        SFSymbols.house_fill,
-                        color: Palette.tabBackground,
-                      ),
-                      title: Text("Home", style: Styles.paragraph),
+    return Stack(
+      children: <Widget>[
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            elevation: 0.0,
+            brightness: Theme.of(context).appBarTheme.brightness,
+            backgroundColor: Colors.transparent,
+          ),
+        ),
+        Scaffold(
+          extendBody: true,
+          body: _screens[_selectedIndex],
+          bottomNavigationBar: Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor.withOpacity(0.7),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 25.0, top: 2.0, right: 25.0, bottom: 0.0),
+                    child: BottomNavigationBar(
+                      elevation: 0,
+                      type: BottomNavigationBarType.fixed,
+                      backgroundColor: Colors.transparent,
+                      iconSize: 30,
+                      items: [
+                        BottomNavigationBarItem(
+                            icon: Icon(SFSymbols.house_fill),
+                            label: 'Home',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(SFSymbols.square_grid_2x2),
+                          label: 'QR Code',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.history),
+                          label: 'History',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(SFSymbols.gear_alt),
+                          label: 'Settings',
+                        ),
+                      ],
+                      showUnselectedLabels: true,
+                      currentIndex: _selectedIndex,
+                      selectedItemColor: Theme.of(context).indicatorColor,
+                      unselectedItemColor: Theme.of(context).iconTheme.color,
+                      selectedLabelStyle: Styles.subheading,
+                      unselectedLabelStyle: Styles.subheading,
+                      onTap: (index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
                     ),
-                    BubbleBottomBarItem(
-                      backgroundColor: Palette.textColor2,
-                      icon: Icon(
-                        SFSymbols.square_grid_2x2,
-                        color: Palette.textColor3,
-                      ),
-                      activeIcon: Icon(
-                        SFSymbols.square_grid_2x2,
-                        color: Palette.tabBackground,
-                      ),
-                      title: Text("QR Code", style: Styles.paragraph),
-                    ),
-                    BubbleBottomBarItem(
-                      backgroundColor: Palette.textColor2,
-                      icon: Icon(
-                        Icons.history,
-                        color: Palette.textColor3,
-                      ),
-                      activeIcon: Icon(
-                        Icons.history,
-                        color: Palette.tabBackground,
-                      ),
-                      title: Text("History", style: Styles.paragraph),
-                    ),
-                    BubbleBottomBarItem(
-                      backgroundColor: Palette.textColor2,
-                      icon: Icon(
-                        SFSymbols.gear_alt,
-                        color: Palette.textColor3,
-                      ),
-                      activeIcon: Icon(
-                        SFSymbols.gear_alt,
-                        color: Palette.tabBackground,
-                      ),
-                      title: Text("Settings", style: Styles.paragraph),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

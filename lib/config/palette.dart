@@ -1,26 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode themeMode = ThemeMode.system;
+
+  bool get isDarkMode {
+    if (themeMode == ThemeMode.system) {
+      final brightness = SchedulerBinding.instance!.window.platformBrightness;
+      return brightness == Brightness.dark;
+    } else {
+      return themeMode == ThemeMode.dark;
+    }
+  }
+
+  void toggleTheme(bool isOn) {
+    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}
 
 class Palette {
-  static const Color primaryColor = Color.fromRGBO(255, 111, 40, 1);
-  static const Color primaryColor2 = Color.fromRGBO(235, 77, 55, 1);
+  static final darkTheme = ThemeData(
+    scaffoldBackgroundColor: Color(0xFF372E2E),
+    appBarTheme: AppBarTheme(
+      brightness: Brightness.dark,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: Color(0xFF717171)),
+      labelStyle: TextStyle(color: Colors.white),
+    ),
+    //brightness: Brightness.dark,
+    focusColor: Color(0xFF261A0E),
+    primaryColor: Colors.white,
+    primaryColorDark: Color(0xFF161616),
+    primaryColorLight: Color(0xFFFFFFFF),
+    colorScheme: ColorScheme.dark(),
+    canvasColor: Color(0xFFD5D1C9),
+    accentColor: Color(0xFF161616),
+    buttonColor: Color(0xFFD5D1C9),
+    iconTheme: IconThemeData(color: Color(0xFFD5D1C9)),
+    indicatorColor: Color(0xFFFF7B67),
+  );
 
-  static const Color cardColor1 = Color.fromRGBO(255, 251, 125, 1);
-  static const Color cardColor2 = Color.fromRGBO(251, 160, 118, 1);
-  static const Color cardColor3 = Color.fromRGBO(111, 247, 232, 1);
-  static const Color cardColor4 = Color.fromRGBO(31, 126, 161, 1);
-  static const Color cardColor5 = Color.fromRGBO(255, 92, 80, 1);
-  static const Color cardColor6 = Color.fromRGBO(100, 50, 138, 1);
-
-  //static const Color defaultBackground = Color.fromRGBO(23, 17, 45, 1);
-  static const Color defaultBackground = Color.fromRGBO(22, 22, 22, 1);
-  //static const Color defaultBackground = Color.fromRGBO(255, 255, 255, 1);
-  //static const Color tabBackground = Color.fromRGBO(18, 14, 36, 1);
-  static const Color tabBackground = Color.fromRGBO(35, 34, 31, 1);
-  static const Color frameBackground = Color.fromRGBO(117, 210, 227, 1);
-  static const Color frameBackground2 = Color.fromRGBO(254, 243, 237, 1);
-
-  static const Color textColor1 = Color.fromRGBO(51, 51, 51, 1);
-  static const Color textColor2 = Color.fromRGBO(251, 127, 118, 1);
-  static const Color textColor3 = Color.fromRGBO(113, 113, 113, 1);
-  static const Color textColor4 = Color.fromRGBO(196, 196, 196, 1);
+  static final lightTheme = ThemeData(
+    scaffoldBackgroundColor: Color(0xFFF1F1F1),
+    appBarTheme: AppBarTheme(
+      brightness: Brightness.light,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(color: Color(0xFF717171)),
+      labelStyle: TextStyle(color: Colors.black),
+    ),
+    //brightness: Brightness.light,
+    focusColor: Colors.white,
+    primaryColor: Colors.black,
+    primaryColorDark: Color(0xFFF1F1F1),
+    primaryColorLight: Color(0xFF261A0E),
+    colorScheme: ColorScheme.light(),
+    canvasColor: Color(0xFFFFFFFF),
+    accentColor: Color(0xFFFFFFFF),
+    buttonColor: Color(0xFF261A0E),
+    iconTheme: IconThemeData(color: Color(0xFF717171)),
+    indicatorColor: Color(0xFFEB4D37),
+  );
 }
