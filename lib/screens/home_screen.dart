@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
+import 'package:impacts/widget/background.dart';
 import 'package:impacts/widget/profile_card_widget.dart';
 import 'package:impacts/widget/tips_widget.dart';
 import 'package:impacts/widget/updates_widget.dart';
@@ -14,66 +15,82 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).scaffoldBackgroundColor,
-                Theme.of(context).primaryColorDark,
-              ],
-            ),
-          ),
-        ),
-        Container(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: SafeArea(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'IMPACTS',
-                          style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
-                        ),
-                        Icon(SFSymbols.bell, color: Theme.of(context).primaryColor),
-                      ],
-                    ),
-                    top: true, bottom: false, left: true, right: true,
-                    minimum: EdgeInsets.only(left: 40.0, top: 55.0, right: 40.0, bottom: 10.0),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-                  child: ProfileCardWidget(context),
-                  height: 170.0,
-                  width: MediaQuery.of(context).size.width,
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-                  child: TipsWidget(context),
-                  height: 190.0,
-                  width: MediaQuery.of(context).size.width,
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-                  child: UpdatesWidget(context),
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ],
-            ),
+        background(context),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: CustomScrollView(
+            slivers: [
+              header(context),
+              profilecard(context),
+              tips(context),
+              updates(context),
+            ],
           ),
         ),
       ],
+    );
+  }
+
+  SliverToBoxAdapter header(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.125,
+        padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+        alignment: Alignment.topLeft,
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'IMPACTS',
+                style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
+              ),
+              IconButton(
+                icon: Icon(SFSymbols.bell,
+                    color: Theme.of(context).primaryColor,
+                    size: 30.0),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          top: true, bottom: false, left: false, right: false,
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter profilecard(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
+        child: ProfileCardWidget(context),
+        height: MediaQuery.of(context).size.height * 0.21,
+        width: MediaQuery.of(context).size.width,
+      ),
+    );
+  }
+
+  SliverToBoxAdapter tips(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
+        child: TipsWidget(context),
+        height: MediaQuery.of(context).size.height * 0.201,
+        //height: 190.0,
+        width: MediaQuery.of(context).size.width,
+      ),
+    );
+  }
+
+  SliverToBoxAdapter updates(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
+        child: UpdatesWidget(context),
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width,
+      ),
     );
   }
 }
