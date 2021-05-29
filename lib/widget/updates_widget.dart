@@ -52,6 +52,11 @@ Widget UpdatesWidget(BuildContext context) {
 
 // ignore: non_constant_identifier_names
 Widget StatisticsTab(BuildContext context){
+  DateTime now = new DateTime.now();
+  List months =
+  ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  String monthDate = months[now.month-1];
+  String date = "$monthDate ${now.day.toString()}, ${now.year.toString()}";
   return Padding(
     padding: const EdgeInsets.only(top: 20.0),
     child: Column(
@@ -71,7 +76,7 @@ Widget StatisticsTab(BuildContext context){
             onTap: (index) {},
           ),
         ),
-        Text('May 17, 2021', style: TextStyle(color: Theme.of(context).iconTheme.color, fontFamily: 'SF-Pro', fontSize: 13, fontWeight: FontWeight.w500)),
+        Text(date, style: TextStyle(color: Theme.of(context).iconTheme.color, fontFamily: 'SF-Pro', fontSize: 13, fontWeight: FontWeight.w500)),
         SizedBox(height: 15.0),
       ],
     ),

@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
           body: CustomScrollView(
             slivers: [
               header(context),
-              profilecard(context),
+              profileCard(context),
               tips(context),
               updates(context),
             ],
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.125,
-        padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+        padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
         alignment: Alignment.topLeft,
         child: SafeArea(
           child: Row(
@@ -46,11 +46,15 @@ class _HomeState extends State<Home> {
                 'IMPACTS',
                 style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
               ),
-              IconButton(
-                icon: Icon(SFSymbols.bell,
-                    color: Theme.of(context).primaryColor,
-                    size: 30.0),
-                onPressed: () {},
+              GestureDetector(
+                onTap: () {
+                  print('Clicked!');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Icon(SFSymbols.bell,
+                      color: Theme.of(context).primaryColor, size: 30.0),
+                ),
               ),
             ],
           ),
@@ -60,7 +64,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  SliverToBoxAdapter profilecard(BuildContext context) {
+  SliverToBoxAdapter profileCard(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),

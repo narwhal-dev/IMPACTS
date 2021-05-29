@@ -34,7 +34,7 @@ class _QRPageState extends State<QRPage> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.125,
-        padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+        padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
         alignment: Alignment.topLeft,
         child: SafeArea(
           child: Row(
@@ -44,11 +44,15 @@ class _QRPageState extends State<QRPage> {
                 'QR Code',
                 style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
               ),
-              IconButton(
-                icon: Icon(SFSymbols.bell,
-                    color: Theme.of(context).primaryColor,
-                    size: 30.0),
-                onPressed: () {},
+              GestureDetector(
+                onTap: () {
+                  print('Clicked!');
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Icon(SFSymbols.bell,
+                      color: Theme.of(context).primaryColor, size: 30.0),
+                ),
               ),
             ],
           ),
@@ -62,7 +66,7 @@ class _QRPageState extends State<QRPage> {
     return SliverToBoxAdapter(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.9,
+        height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.all(40.0),
         child: Column(
           children: [
@@ -78,15 +82,15 @@ class _QRPageState extends State<QRPage> {
 // ignore: non_constant_identifier_names
 Widget QRCodeWidget(BuildContext context) {
   return Container(
-    padding: EdgeInsets.only(top: 5.0, bottom: 15.0),
-    height: MediaQuery.of(context).size.height * 0.35,
+    padding: EdgeInsets.only(top: 25.0, bottom: 15.0),
+    height: MediaQuery.of(context).size.height * 0.38,
     width: MediaQuery.of(context).size.width,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: InkWell(
-        splashColor: Colors.deepOrange.withAlpha(30),
+        borderRadius: BorderRadius.circular(30.0),
         onTap: () {
           Navigator.push(
             context,
@@ -165,14 +169,14 @@ Widget QRCodeWidget(BuildContext context) {
 Widget HealthFormWidget(BuildContext context) {
   return Container(
     padding: EdgeInsets.only(top: 80.0, bottom: 0.0),
-    height: MediaQuery.of(context).size.height * 0.415,
+    height: MediaQuery.of(context).size.height * 0.42,
     width: MediaQuery.of(context).size.width,
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: InkWell(
-        splashColor: Colors.deepOrange.withAlpha(30),
+        borderRadius: BorderRadius.circular(30.0),
         onTap: () {
           Navigator.push(
             context,

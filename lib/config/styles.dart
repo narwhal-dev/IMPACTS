@@ -108,4 +108,20 @@ abstract class Styles {
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.bold,
   );
+
+  static const TextStyle checklistMain = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Colors.black,
+    fontSize: 22,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
+  static const TextStyle checklistSubheading = TextStyle(
+    fontFamily: 'SF-Pro',
+    color: Color(0xFF717171),
+    fontSize: 17,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+  );
 }

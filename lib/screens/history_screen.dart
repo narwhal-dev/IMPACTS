@@ -30,7 +30,7 @@ class _HistoryState extends State<History> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.125,
-        padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+        padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
         alignment: Alignment.topLeft,
         child: SafeArea(
           child: Text(
