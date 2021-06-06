@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:impacts/widget/background.dart';
+import '../config/styles.dart';
+import '../widget/background.dart';
 
 class History extends StatefulWidget {
   @override
@@ -17,7 +18,6 @@ class _HistoryState extends State<History> {
           body: CustomScrollView(
             slivers: [
               header(context),
-              //bodyQRWidgets(context),
             ],
           ),
         ),
@@ -35,7 +35,7 @@ class _HistoryState extends State<History> {
         child: SafeArea(
           child: Text(
             'History',
-            style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
+            style: Styles.title1.merge(TextStyle(color: Theme.of(context).primaryColor)),
           ),
           top: true, bottom: false, left: false, right: false,
         ),

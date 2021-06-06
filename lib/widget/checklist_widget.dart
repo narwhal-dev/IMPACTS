@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:impacts/config/styles.dart';
+import '../config/styles.dart';
 
-// ignore: non_constant_identifier_names
 class ChecklistWidget extends StatefulWidget {
   const ChecklistWidget({Key? key}) : super(key: key);
 
@@ -33,11 +32,11 @@ class _ChecklistWidgetState extends State<ChecklistWidget> {
                         dense: true,
                         title: Text(
                           checkBoxListTileModel[index].title,
-                          style: Styles.checklistMain,
+                          style: Styles.title3.merge(TextStyle(color: Colors.black)),
                         ),
                         subtitle: Text(
                           checkBoxListTileModel[index].subtitle,
-                          style: Styles.checklistSubheading,
+                          style: Styles.title5.merge(TextStyle(color: Color(0xFF717171), fontWeight: FontWeight.w500)),
                         ),
                         value: checkBoxListTileModel[index].isCheck,
                         onChanged: (val) {

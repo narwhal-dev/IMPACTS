@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import '../config/styles.dart';
 
-Widget TipsWidget(BuildContext context) {
+Widget tipsWidget(BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         'Prevention Tips',
-        style: TextStyle(
-          fontFamily: 'SF-Pro', color: Theme.of(context).primaryColorLight, fontSize: 28, fontWeight: FontWeight.bold,
-        ),
+        style: Styles.title2.merge(TextStyle(color: Theme.of(context).primaryColor)),
       ),
       SizedBox(height: 8.0),
       Row(
-        //crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
@@ -21,9 +19,7 @@ Widget TipsWidget(BuildContext context) {
                 Image.asset('assets/images/distancing group.png', height: 90.0, width: 90.0),
                 SizedBox(height: 8.0),
                 Text('Avoid close contact',
-                  style: TextStyle(
-                    fontFamily: 'SF-Pro', color: Theme.of(context).indicatorColor, fontSize: 13, fontWeight: FontWeight.bold,
-                  ),
+                  style: Styles.label.merge(TextStyle(color: Theme.of(context).indicatorColor)),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -35,9 +31,7 @@ Widget TipsWidget(BuildContext context) {
                 Image.asset('assets/images/washing final.png', height: 90.0, width: 90.0),
                 SizedBox(height: 8.0),
                 Text('Regularly clean your hands',
-                  style: TextStyle(
-                    fontFamily: 'SF-Pro', color: Theme.of(context).indicatorColor, fontSize: 13, fontWeight: FontWeight.bold,
-                  ),
+                  style: Styles.label.merge(TextStyle(color: Theme.of(context).indicatorColor)),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -49,9 +43,7 @@ Widget TipsWidget(BuildContext context) {
                 Image.asset('assets/images/mask final.png', height: 90.0, width: 90.0),
                 SizedBox(height: 8.0),
                 Text('Wear a face\nmask',
-                  style: TextStyle(
-                    fontFamily: 'SF-Pro', color: Theme.of(context).indicatorColor, fontSize: 13, fontWeight: FontWeight.bold,
-                  ),
+                  style: Styles.label.merge(TextStyle(color: Theme.of(context).indicatorColor)),
                   textAlign: TextAlign.center,
                 ),
               ],

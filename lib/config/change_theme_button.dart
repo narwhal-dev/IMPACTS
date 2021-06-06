@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:impacts/config/palette.dart';
+import '../config/palette.dart';
 
 class ChangeThemeButtonWidget extends StatelessWidget {
   @override

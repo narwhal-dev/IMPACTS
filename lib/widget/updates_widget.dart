@@ -1,18 +1,15 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:impacts/config/styles.dart';
-import 'package:impacts/widget/statistics_grid.dart';
+import '../config/styles.dart';
+import '../widget/statistics_grid.dart';
 
-// ignore: non_constant_identifier_names
-Widget UpdatesWidget(BuildContext context) {
+Widget updatesWidget(BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         'Covid-19 Updates',
-        style: TextStyle(
-          fontFamily: 'SF-Pro', color: Theme.of(context).primaryColorLight, fontSize: 28, fontWeight: FontWeight.bold,
-        ),
+        style: Styles.title2.merge(TextStyle(color: Theme.of(context).primaryColorLight)),
       ),
       SizedBox(height: 15.0),
       DefaultTabController(
@@ -76,7 +73,7 @@ Widget StatisticsTab(BuildContext context){
             onTap: (index) {},
           ),
         ),
-        Text(date, style: TextStyle(color: Theme.of(context).iconTheme.color, fontFamily: 'SF-Pro', fontSize: 13, fontWeight: FontWeight.w500)),
+        Text(date, style: Styles.label.merge(TextStyle(color: Theme.of(context).iconTheme.color, fontWeight: FontWeight.w500))),
         SizedBox(height: 15.0),
       ],
     ),

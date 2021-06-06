@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "799405908809",
+    "project_id": "impacts-fb",
+    "storage_bucket": "impacts-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799405908809:android:e836522c34190e2921b098",
+        "android_client_info": {
+          "package_name": "com.cagasmarknicholas.impacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799405908809-ko44nbs60l53n7egtlafo8v8l5ihq4sd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_NxObWSWuRGNOn0J7LLIIYgApkPO43-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799405908809-ko44nbs60l53n7egtlafo8v8l5ihq4sd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799405908809-2nqn8ce5dh7otnujemoc6cphggdpi2dh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cagasmarknicholas.impacts"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:impacts/config/styles.dart';
+import '../config/styles.dart';
+import 'buttons_widget.dart';
 
-// ignore: non_constant_identifier_names
-Widget ProfileCardWidget(BuildContext context){
+Widget profileCardWidget(BuildContext context){
   return Stack(
     clipBehavior: Clip.none,
     children: [
@@ -36,7 +36,7 @@ Widget ProfileCardWidget(BuildContext context){
       ),
       Container(
         child: Column(
-          children: <Widget>[
+          children: [
             Container(
               padding: EdgeInsets.fromLTRB(10.0, 10.0, 0.0, 0.0),
               child: Row(
@@ -67,29 +67,10 @@ Widget ProfileCardWidget(BuildContext context){
             ),
             Text(
               'Update Health Status',
-              style: TextStyle(
-                fontFamily: 'SF-Pro', color: Color(0xFF717171), fontSize: 10, fontWeight: FontWeight.bold,
-              ),
+              style: Styles.caption.merge(TextStyle(color: Color(0xFF717171))),
             ),
             SizedBox(height: 4.0),
-            ClipRect(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-                    child: Container(
-                      height: 20.0,
-                      width: 220.0,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFF717171)),
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white.withOpacity(0.1),
-                      ),
-                      child: OutlinedButton(
-                        onPressed: () {  },
-                        child: Text('UPDATE', style: Styles.caption),
-                      ),
-                    ),
-                ),
-              ),
+            updateButton(context),
           ],
         )
       ),

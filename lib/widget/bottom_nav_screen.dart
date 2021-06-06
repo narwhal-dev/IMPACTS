@@ -1,11 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'dart:ui';
-import 'package:impacts/config/styles.dart';
-import 'home_screen.dart';
-import 'qr_screen.dart';
-import 'history_screen.dart';
-import 'settings_screen.dart';
+import '../config/styles.dart';
+import '../screens/home_screen.dart';
+import '../screens/dashboard_screen.dart';
+import '../screens/history_screen.dart';
+import '../screens/settings_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({Key? key}) : super(key: key);
@@ -55,19 +55,19 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                     iconSize: 30,
                     items: [
                       BottomNavigationBarItem(
-                          icon: Icon(SFSymbols.house_fill),
+                          icon: Icon(CupertinoIcons.house_fill),
                           label: 'Home',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(SFSymbols.square_grid_2x2),
+                        icon: Icon(Icons.dashboard),
                         label: 'QR Code',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(Icons.history),
+                        icon: Icon(CupertinoIcons.hourglass),
                         label: 'History',
                       ),
                       BottomNavigationBarItem(
-                        icon: Icon(SFSymbols.gear_alt),
+                        icon: Icon(CupertinoIcons.gear_alt),
                         label: 'Settings',
                       ),
                     ],

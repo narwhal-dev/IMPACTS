@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:impacts/config/styles.dart';
-import 'package:impacts/widget/background.dart';
+import '../config/styles.dart';
+import '../widget/background.dart';
 import 'qr_code.dart';
 import 'checklist.dart';
 
@@ -42,7 +42,7 @@ class _QRPageState extends State<QRPage> {
             children: [
               Text(
                 'QR Code',
-                style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
+                style: Styles.title1.merge(TextStyle(color: Theme.of(context).primaryColor)),
               ),
               GestureDetector(
                 onTap: () {
@@ -50,8 +50,7 @@ class _QRPageState extends State<QRPage> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: Icon(SFSymbols.bell,
-                      color: Theme.of(context).primaryColor, size: 30.0),
+                  child: Icon(CupertinoIcons.bell, color: Theme.of(context).primaryColor, size: 30.0),
                 ),
               ),
             ],
@@ -135,12 +134,12 @@ Widget QRCodeWidget(BuildContext context) {
                 children: [
                   Text(
                     'GENERATE\nQR CODE',
-                    style: Styles.title1,
+                    style: Styles.title1.merge(TextStyle(color: Color(0xFF261A0E))),
                   ),
                   SizedBox(height: 10.0),
                   Text(
                     'Click to generate QR Code',
-                    style: Styles.title6,
+                    style: Styles.title5.merge(TextStyle(color: Color(0xFF717171))),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 6.0, bottom: 15.0),
@@ -221,12 +220,12 @@ Widget HealthFormWidget(BuildContext context) {
                 children: [
                   Text(
                     'FILL OUT HEALTH\nDECLARATION FORM',
-                    style: Styles.title2,
+                    style: Styles.title2.merge(TextStyle(color: Color(0xFF261A0E))),
                   ),
                   SizedBox(height: 10.0),
                   Text(
                     'Click to fill out\nthe necessary information',
-                    style: Styles.title6,
+                    style: Styles.title5.merge(TextStyle(color: Color(0xFF717171))),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 6.0, bottom: 15.0),

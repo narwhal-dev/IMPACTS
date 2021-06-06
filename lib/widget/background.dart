@@ -16,3 +16,28 @@ Widget background(BuildContext context) {
     ),
   );
 }
+
+Widget startBackground(BuildContext context) {
+  return Container(
+    height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [
+          Color(0xFFFF7B67),
+          Color(0xFFEB4D37),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget appBarBackground(BuildContext context) {
+  return AppBar(
+    backgroundColor: Colors.transparent,
+    elevation: 0.0,
+    brightness: Brightness.dark,
+  );
+}

@@ -1,8 +1,9 @@
 import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:impacts/config/styles.dart';
-import 'package:impacts/widget/background.dart';
+import '../config/styles.dart';
+import '../widget/background.dart';
+import '../widget/buttons_widget.dart';
 
 class QRCode extends StatefulWidget {
   @override
@@ -27,13 +28,18 @@ class _QRCodeState extends State<QRCode> {
             ),
           ),
           backgroundColor: Colors.transparent,
-          body: CustomScrollView(
-            physics: ClampingScrollPhysics(),
-            slivers: [
-              header(context),
-              content(context),
-              bodyQR(context),
-            ],
+          body: Container(
+            height: MediaQuery.of(context).size.height*0.915,
+            width: MediaQuery.of(context).size.width,
+            //color: Colors.red,
+            child: CustomScrollView(
+              physics: ClampingScrollPhysics(),
+              slivers: [
+                header(context),
+                content(context),
+                bodyQR(context),
+              ],
+            ),
           ),
         ),
       ],
@@ -43,7 +49,8 @@ class _QRCodeState extends State<QRCode> {
   SliverToBoxAdapter header(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0, bottom: 20.0),
+        padding: const EdgeInsets.only(
+            left: 40.0, right: 40.0, top: 10.0, bottom: 20.0),
         alignment: Alignment.topLeft,
         color: Theme.of(context).canvasColor,
         child: SafeArea(
@@ -52,7 +59,7 @@ class _QRCodeState extends State<QRCode> {
             children: [
               Text(
                 'IMPACTS',
-                style: TextStyle(fontFamily: 'SF-Pro', color: Colors.black, fontSize: 36, fontWeight: FontWeight.bold),
+                style: Styles.title1.merge(TextStyle(color: Colors.black)),
               ),
               GestureDetector(
                 onTap: () {
@@ -60,13 +67,16 @@ class _QRCodeState extends State<QRCode> {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
-                  child: Icon(SFSymbols.arrow_left_circle,
+                  child: Icon(CupertinoIcons.arrow_left_circle,
                       color: Colors.black, size: 30.0),
                 ),
               ),
             ],
           ),
-          top: true, bottom: false, left: false, right: false,
+          top: true,
+          bottom: false,
+          left: false,
+          right: false,
         ),
       ),
     );
@@ -116,27 +126,9 @@ class _QRCodeState extends State<QRCode> {
                         SizedBox(height: 3.0),
                         Text('• Good Condition', style: Styles.condition),
                         SizedBox(height: 8.0),
-                        Text('Update Health Status',
-                            style: TextStyle(
-                                fontFamily: 'SF-Pro',
-                                color: Color(0xFF333333),
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center),
+                        Text('Update Health Status', style: Styles.caption.merge(TextStyle(color: Color(0xFF333333))), textAlign: TextAlign.center),
                         SizedBox(height: 4.0),
-                        Container(
-                          height: 20.0,
-                          width: 220.0,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Color(0xFF717171)),
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.white.withOpacity(0.1),
-                          ),
-                          child: OutlinedButton(
-                            onPressed: () {},
-                            child: Text('UPDATE', style: Styles.caption),
-                          ),
-                        ),
+                        updateButton(context),
                       ],
                     ),
                   ),
@@ -147,25 +139,20 @@ class _QRCodeState extends State<QRCode> {
             SizedBox(height: 25.0),
             Text(
               'Your QR Code',
-              style: TextStyle(
-                  fontFamily: 'SF-Pro',
-                  color: Colors.black,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold),
+              style: Styles.title2.merge(TextStyle(color: Colors.black)),
             ),
             SizedBox(height: 30.0),
             Center(
-                child: AspectRatio(
-                  aspectRatio: 1 / 1,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
+              child: AspectRatio(
+                aspectRatio: 1 / 1,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
-
+                ),
               ),
             ),
           ],
@@ -187,21 +174,13 @@ class _QRCodeState extends State<QRCode> {
               child: Text(
                 'Help us fight COVID-19',
                 textAlign: TextAlign.start,
-                style: TextStyle(
-                    fontFamily: 'SF-Pro',
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold),
+                style: Styles.title3.merge(TextStyle(color: Theme.of(context).primaryColor)),
               ),
             ),
             SizedBox(height: 16.0),
             Text(
-                'You can help us stop the spread of COVID-19 by staying safe at home, and help us by reporting your health condition for us to know that you are in good condition.',
-                style: TextStyle(
-                    fontFamily: 'SF-Pro',
-                    color: Theme.of(context).buttonColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700)),
+              'You can help us stop the spread of COVID-19 by staying safe at home, and help us by reporting your health condition for us to know that you are in good condition.',
+              style: Styles.title4.merge(TextStyle(color: Theme.of(context).buttonColor,))),
           ],
         ),
       ),

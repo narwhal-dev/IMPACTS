@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:impacts/widget/background.dart';
-import 'package:impacts/widget/profile_card_widget.dart';
-import 'package:impacts/widget/tips_widget.dart';
-import 'package:impacts/widget/updates_widget.dart';
+import '../config/styles.dart';
+import '../widget/background.dart';
+import '../widget/profile_card_widget.dart';
+import '../widget/tips_widget.dart';
+import '../widget/updates_widget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 'IMPACTS',
-                style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
+                style: Styles.title1.merge(TextStyle(color: Theme.of(context).primaryColor)),
               ),
               GestureDetector(
                 onTap: () {
@@ -52,8 +53,7 @@ class _HomeState extends State<Home> {
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(5.0),
-                  child: Icon(SFSymbols.bell,
-                      color: Theme.of(context).primaryColor, size: 30.0),
+                  child: Icon(CupertinoIcons.bell, color: Theme.of(context).primaryColor, size: 30.0),
                 ),
               ),
             ],
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-        child: ProfileCardWidget(context),
+        child: profileCardWidget(context),
         height: MediaQuery.of(context).size.height * 0.21,
         width: MediaQuery.of(context).size.width,
       ),
@@ -79,9 +79,8 @@ class _HomeState extends State<Home> {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-        child: TipsWidget(context),
+        child: tipsWidget(context),
         height: MediaQuery.of(context).size.height * 0.201,
-        //height: 190.0,
         width: MediaQuery.of(context).size.width,
       ),
     );
@@ -91,7 +90,7 @@ class _HomeState extends State<Home> {
     return SliverToBoxAdapter(
       child: Container(
         padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 10.0),
-        child: UpdatesWidget(context),
+        child: updatesWidget(context),
         height: MediaQuery.of(context).size.height * 0.6,
         width: MediaQuery.of(context).size.width,
       ),

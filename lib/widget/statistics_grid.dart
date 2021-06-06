@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:impacts/config/styles.dart';
+import '../config/styles.dart';
 
 // ignore: non_constant_identifier_names
 Widget StatisticsGrid(BuildContext context) {
   return Container(
     height: MediaQuery.of(context).size.height * 0.275,
-    //color: Colors.orange,
     child: Column(
       children: [
         Flexible(
@@ -55,8 +54,8 @@ Widget StatisticsCard(BuildContext context, String title, String count) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.paragraph),
-        Text(count, style: Styles.title3),
+        Text(title, style: Styles.title5.merge(TextStyle(color: Color(0xFF261A0E), fontWeight: FontWeight.w600))),
+        Text(count, style: Styles.title3.merge(TextStyle(color: Color(0xFF261A0E), fontWeight: FontWeight.w800))),
       ],
     ),
   );

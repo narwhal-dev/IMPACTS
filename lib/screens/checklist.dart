@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
-import 'package:impacts/config/styles.dart';
-import 'package:impacts/widget/background.dart';
-import 'package:impacts/widget/checklist_widget.dart';
+import '../config/styles.dart';
+import '../widget/background.dart';
+import '../widget/buttons_widget.dart';
+import '../widget/checklist_widget.dart';
 
 class Checklist extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _ChecklistState extends State<Checklist> {
             children: [
               Text(
                 'Health Checklist',
-                style: TextStyle(fontFamily: 'SF-Pro', color: Theme.of(context).primaryColor, fontSize: 36, fontWeight: FontWeight.bold),
+                style: Styles.title1.merge(TextStyle(color: Theme.of(context).primaryColor)),
               ),
               GestureDetector(
                 onTap: () {
@@ -52,8 +53,7 @@ class _ChecklistState extends State<Checklist> {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(5.0),
-                  child: Icon(SFSymbols.arrow_left_circle,
-                      color: Theme.of(context).primaryColor, size: 30.0),
+                  child: Icon(CupertinoIcons.arrow_left_circle, color: Theme.of(context).primaryColor, size: 30.0),
                 ),
               ),
             ],
@@ -71,12 +71,7 @@ class _ChecklistState extends State<Checklist> {
         padding: const EdgeInsets.only(left: 40.0, right: 40.0, bottom: 5.0),
         child: Text(
           'Are you experiencing:',
-          style: TextStyle(
-              fontFamily: 'SF-Pro',
-              color: Theme.of(context).primaryColor,
-              fontSize: 22,
-              fontWeight: FontWeight.bold
-          ),
+          style: Styles.title3.merge(TextStyle(color: Theme.of(context).primaryColor))
         ),
       ),
     );
@@ -94,12 +89,7 @@ class _ChecklistState extends State<Checklist> {
             color: Theme.of(context).canvasColor,
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: MediaQuery.removePadding(
-              removeTop: true,
-              removeBottom: true,
-              context: context,
-              child: ChecklistWidget()
-          )
+          child: MediaQuery.removePadding(removeTop: true, removeBottom: true, context: context, child: ChecklistWidget()),
         ),
       ),
     );
@@ -108,25 +98,7 @@ class _ChecklistState extends State<Checklist> {
   SliverToBoxAdapter nextWidget(BuildContext context){
     return SliverToBoxAdapter(
       child: Center(
-        child: Container(
-          height: 52.0,
-          width: MediaQuery.of(context).size.width,
-          margin: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
-          //color: Colors.red,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
-            color: Theme.of(context).canvasColor,
-          ),
-          child: TextButton(
-            onPressed: () {print('Clicked!');},
-            child: Text('Next', style: TextStyle(
-                fontFamily: 'SF-Pro',
-                color: Colors.black,
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-            ),),
-          ),
-        ),
+        child: nextButton(context),
       ),
     );
   }

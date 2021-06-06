@@ -22,15 +22,11 @@ class ThemeProvider extends ChangeNotifier {
 
 class Palette {
   static final darkTheme = ThemeData(
+    fontFamily: 'SF-Pro',
     scaffoldBackgroundColor: Color(0xFF372E2E),
     appBarTheme: AppBarTheme(
       brightness: Brightness.dark,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(color: Color(0xFF717171)),
-      labelStyle: TextStyle(color: Colors.white),
-    ),
-    //brightness: Brightness.dark,
     focusColor: Color(0xFF261A0E),
     primaryColor: Colors.white,
     primaryColorDark: Color(0xFF161616),
@@ -41,18 +37,15 @@ class Palette {
     buttonColor: Color(0xFFD5D1C9),
     iconTheme: IconThemeData(color: Color(0xFFD5D1C9)),
     indicatorColor: Color(0xFFFF7B67),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black, selectionHandleColor: Color(0xFFEB4D37)),
   );
 
   static final lightTheme = ThemeData(
+    fontFamily: 'SF-Pro',
     scaffoldBackgroundColor: Color(0xFFF1F1F1),
     appBarTheme: AppBarTheme(
       brightness: Brightness.light,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(color: Color(0xFF717171)),
-      labelStyle: TextStyle(color: Colors.black),
-    ),
-    //brightness: Brightness.light,
     focusColor: Colors.white,
     primaryColor: Colors.black,
     primaryColorDark: Color(0xFFF1F1F1),
@@ -63,5 +56,6 @@ class Palette {
     buttonColor: Color(0xFF261A0E),
     iconTheme: IconThemeData(color: Color(0xFF717171)),
     indicatorColor: Color(0xFFEB4D37),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black, selectionHandleColor: Color(0xFFEB4D37)),
   );
 }
